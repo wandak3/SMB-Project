@@ -21,7 +21,7 @@ ONE_TIME_HIGH_RES_MODE_1 = 0x20
 # Device is automatically set to Power Down after measurement.
 ONE_TIME_HIGH_RES_MODE_2 = 0x21
 # Start measurement at 1lx resolution. Time typically 120ms
-# Device is automatically set to Power Down after measurement.
+# Device is automatically set to Power Down after measurement
 ONE_TIME_LOW_RES_MODE = 0x23
  
 #bus = smbus.SMBus(0) # Rev 1 Pi uses 0
@@ -44,3 +44,5 @@ def main():
    
 if __name__=="__main__":
    main()
+
+# New Update
