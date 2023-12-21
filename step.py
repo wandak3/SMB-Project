@@ -16,12 +16,13 @@ GPIO.output(DIR, CW)
 
 step_count = SPR * 2 
 delay = 0.0009
+while (True):
+    for x in range(step_count):
+        GPIO.output(STEP, GPIO.HIGH)
+        sleep(delay)
+        GPIO.output(STEP, GPIO.LOW)
+        sleep(delay)
 
-for x in range(step_count):
-    GPIO.output(STEP, GPIO.HIGH)
-    sleep(delay)
-    GPIO.output(STEP, GPIO.LOW)
-    sleep(delay)
 
 #sleep(.5)
 #GPIO.output(DIR, CCW)
