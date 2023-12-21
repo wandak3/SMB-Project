@@ -22,7 +22,7 @@ while (True):
         sleep(delay)
         GPIO.output(STEP, GPIO.LOW)
         sleep(delay)
-    sleep(5)
+    sleep(1)
 
 
 #sleep(.5)
