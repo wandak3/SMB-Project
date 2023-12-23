@@ -9,16 +9,16 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 
-step_count = SPR * 5
-delay = 0.0009
-closed_or_openedFLAG = 0 # 0 means curtain is currently open, 1 means currently closed
-
 # Define some constants for the motor driver
 DIR = 20   # Direction GPIO Pin
 STEP = 21  # Step GPIO Pin
 CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
 SPR = 200  # Steps per Revolution (360 / 1.8)
+
+step_count = SPR * 5
+delay = 0.0009
+closed_or_openedFLAG = 0 # 0 means curtain is currently open, 1 means currently closed
 
 # Define some constants from the datasheet
 DEVICE     = 0x23 # Default device's I2C address
