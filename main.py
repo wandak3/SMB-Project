@@ -3,18 +3,18 @@ import smbus
 from time import sleep
 import RPi.GPIO as GPIO
 
-# Initialize the motor driver
-GPIO.setwarnings(False)
-GPIO.setmode(GPIO.BCM)
-GPIO.setup(DIR, GPIO.OUT)
-GPIO.setup(STEP, GPIO.OUT)
-
 # Define some constants for the motor driver
 DIR = 20   # Direction GPIO Pin
 STEP = 21  # Step GPIO Pin
 CW = 1     # Clockwise Rotation
 CCW = 0    # Counterclockwise Rotation
 SPR = 200  # Steps per Revolution (360 / 1.8)
+
+# Initialize the motor driver
+GPIO.setwarnings(False)
+GPIO.setmode(GPIO.BCM)
+GPIO.setup(DIR, GPIO.OUT)
+GPIO.setup(STEP, GPIO.OUT)
 
 step_count = SPR * 5
 delay = 0.0009
