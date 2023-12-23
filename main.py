@@ -71,13 +71,16 @@ def main(): # Everything in main()
 
     if ((closed_or_openedFLAG == 0) and (curtainPercent > 0.5)):
       GPIO.output(DIR, CW)
+      closed_or_openedFLAG = 1
       for x in range(step_count):
         GPIO.output(STEP, GPIO.HIGH)
         sleep(delay)
         GPIO.output(STEP, GPIO.LOW)
         sleep(delay)
+
     elif ((closed_or_openedFLAG == 1) and (curtainPercent <= 0.5)):
       GPIO.output(DIR, CCW)
+      closed_or_openedFLAG = 0
       for x in range(step_count):
         GPIO.output(STEP, GPIO.HIGH)
         sleep(delay)
