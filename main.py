@@ -1,4 +1,3 @@
-#!/usr/bin/python
 import smbus
 from time import sleep
 import RPi.GPIO as GPIO
