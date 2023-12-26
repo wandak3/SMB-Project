@@ -13,7 +13,7 @@ GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 
 step_count = SPR * 5
-delay = 0.0009
+delay = 0.208
 
 GPIO.output(DIR, CCW)
 
