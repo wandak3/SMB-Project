@@ -12,7 +12,7 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 
-step_count = SPR * 5 - 40
+step_count = SPR * 5 - 80
 delay = 0.001
 
 GPIO.output(DIR, CCW)
