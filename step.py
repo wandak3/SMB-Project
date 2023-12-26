@@ -14,7 +14,7 @@ GPIO.setup(STEP, GPIO.OUT)
 
 GPIO.output(DIR, CW)
 
-step_count = SPR * 5
+step_count = SPR * 4.8
 delay = 0.001
 
 for x in range(step_count):
