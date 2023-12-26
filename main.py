@@ -15,9 +15,8 @@ GPIO.setmode(GPIO.BCM)
 GPIO.setup(DIR, GPIO.OUT)
 GPIO.setup(STEP, GPIO.OUT)
 
-step_count = SPR * 5
-delay = 0.0009
-closed_or_openedFLAG = 0 # 0 means curtain is currently open, 1 means currently closed
+step_count = SPR * 5 - 80
+delay = 0.001
 
 # Define some constants from the datasheet
 DEVICE     = 0x23 # Default device's I2C address
@@ -63,6 +62,7 @@ def readLight(addr=DEVICE): # input is by default the device's I2C address
   return convertToNumber(data)
  
 def main(): # Everything in main()
+  closed_or_openedFLAG = 0 # 0 means curtain is currently open, 1 means currently closed
   while True: # Python's version of a loop that runs forever
     print("Light Level : " + str(readLight()) + " lux")
     # Continuously updated variable on what percentage brightness is present
