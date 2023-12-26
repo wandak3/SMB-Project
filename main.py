@@ -50,7 +50,7 @@ bus = smbus.SMBus(1)  # Rev 2 Pi uses 1 (also apply to Rpi 3B 2015)
 
 # Define the maximum brightness level that would
 # cause the curtain to close all the way
-maxBrightness = 600 # not sure, might need to check and re-adjust
+maxBrightness = 600 # Change to match the environment
  
 def convertToNumber(data):
   # Simple function to convert 2 bytes of data into a float decimal number
@@ -86,7 +86,7 @@ def main(): # Everything in main()
         GPIO.output(STEP, GPIO.LOW)
         sleep(delay)
 
-    sleep(10) # Should change this time interval between measurements to be longer
+    sleep(10) # Changes how often it updates
   
 
 if __name__=="__main__": # Don't understand, need help
