@@ -48,7 +48,7 @@ def readLight(addr=DEVICE): # input is by default the device's I2C address
 def main():
   light_level = 0
   while True: # Python's version of a loop that runs forever
-    if readLight() != light_level:
+    if round(readLight(), 2) != round(light_level, 2):
       print("Light Level : " + str(readLight()) + " lux")
       light_level = readLight()
       # Continuously updated variable on what percentage the curtain should close/open
