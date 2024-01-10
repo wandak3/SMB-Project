@@ -46,12 +46,14 @@ def readLight(addr=DEVICE): # input is by default the device's I2C address
   return convertToNumber(data)
  
 def main():
- 
+  light_level = 0
   while True: # Python's version of a loop that runs forever
-    print("Light Level : " + str(readLight()) + " lux")
-    # Continuously updated variable on what percentage the curtain should close/open
-    curtainPercent = readLight()/maxBrightness
-    time.sleep(0.5) # Should change this time interval between measurements to be longer 
+    if readLight() != light_level:
+      print("Light Level : " + str(readLight()) + " lux")
+      light_level = readLight()
+      # Continuously updated variable on what percentage the curtain should close/open
+      curtainPercent = readLight()/maxBrightness
+      time.sleep(0.5) # Should change this time interval between measurements to be longer 
    
 if __name__=="__main__": # Don't understand, need help
    main()
