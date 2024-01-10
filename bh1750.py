@@ -49,8 +49,8 @@ def main():
   light_level = 0
   while True: # Python's version of a loop that runs forever
     if round(readLight(), 2) != round(light_level, 2):
-      print("Light Level : " + str(readLight()) + " lux")
-      light_level = readLight()
+      print("Light Level : " + str(round(readLight(), 2)) + " lux")
+      light_level = round(readLight(), 2)
       # Continuously updated variable on what percentage the curtain should close/open
       curtainPercent = readLight()/maxBrightness
       time.sleep(0.5) # Should change this time interval between measurements to be longer 
