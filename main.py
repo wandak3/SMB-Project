@@ -86,7 +86,7 @@ def main(): # Everything in main()
         GPIO.output(STEP, GPIO.LOW)
         sleep(delay)
 
-    sleep(5) # Changes how often it updates
+    sleep(3) # Changes how often it updates
   
 
 if __name__=="__main__": # Don't understand, need help
