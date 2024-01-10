@@ -51,10 +51,6 @@ bus = smbus.SMBus(1)  # Rev 2 Pi uses 1 (also apply to Rpi 3B 2015)
 # Define the maximum brightness level that would
 # cause the curtain to close all the way
 maxBrightness = 600 # Change to match the environment
-
-
-def is_almost_equal(x,y, epsilon=1*10**(-8)): 
-	return abs(x-y) <= epsilon
  
 def convertToNumber(data):
   # Simple function to convert 2 bytes of data into a float decimal number
@@ -67,11 +63,8 @@ def readLight(addr=DEVICE): # input is by default the device's I2C address
  
 def main(): # Everything in main()
   closed_or_openedFLAG = 0 # 0 means curtain is currently open, 1 means currently closed
-  light_level = 0;
   while True: # Python's version of a loop that runs forever
-    if is_almost_equal(readLight(), light_level):
-      print("Light Level : " + str('{0:.3f}'.format(readLight())) + " lux")
-      continue
+    print("Light Level : " + str('{0:.3f}'.format(readLight())) + " lux")
     # Continuously updated variable on what percentage brightness is present
     curtainPercent = readLight()/maxBrightness
 
@@ -94,6 +87,7 @@ def main(): # Everything in main()
         sleep(delay)
 
     sleep(5) # Changes how often it updates
+  
 
 if __name__=="__main__": # Don't understand, need help
    main()
