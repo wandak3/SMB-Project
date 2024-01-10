@@ -1,6 +1,7 @@
 #!/usr/bin/python
 import smbus
 import time
+import math
  
 # Define some constants from the datasheet
 DEVICE     = 0x23 # Default device's I2C address
@@ -48,14 +49,12 @@ def readLight(addr=DEVICE): # input is by default the device's I2C address
 def main():
   light_level = 0
   while True: # Python's version of a loop that runs forever
-    if round(readLight(), 2) != round(light_level, 2):
-      print("Light Level : " + str(round(readLight(), 2)) + " lux")
-      light_level = round(readLight(), 2)
+    if math.isclose(readLight(), light_level, rel_tol=1e-2):
+      print("Light Level : " + str('{0:.3f}'.format(readLight())) + " lux")
+      light_level = readLight()
       # Continuously updated variable on what percentage the curtain should close/open
       curtainPercent = readLight()/maxBrightness
       time.sleep(0.5) # Should change this time interval between measurements to be longer 
    
-if __name__=="__main__": # Don't understand, need help
+if __name__=="__main__":
    main()
-
-   #hello
