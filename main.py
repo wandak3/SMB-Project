@@ -1,4 +1,4 @@
-import smbus
+import smbus, math
 from time import sleep
 import RPi.GPIO as GPIO
 
@@ -63,8 +63,11 @@ def readLight(addr=DEVICE): # input is by default the device's I2C address
  
 def main(): # Everything in main()
   closed_or_openedFLAG = 0 # 0 means curtain is currently open, 1 means currently closed
+  light_level = 0
   while True: # Python's version of a loop that runs forever
-    print("Light Level : " + str(readLight()) + " lux")
+    if math.isclose(readLight(), light_level, rel_tol=1e-2):
+      print("Light Level : " + str('{0:.3f}'.format(readLight())) + " lux")
+      light_level = readLight()
     # Continuously updated variable on what percentage brightness is present
     curtainPercent = readLight()/maxBrightness
 
